@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoang Hien</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <div>
+        <!-- <div class="content">
+            <table>
+                <caption>
+                    List of Fruit
+                </caption>
+                <thead>
+                    <th>STT</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th>Select</th>
+                </thead>
+
+                <tbody>
+                    <% data.forEach(item => { %>
+                        <tr>
+                            <td>
+                                <%= item.id%>
+                            </td>
+                            <td>
+                                <%= item.name%>
+                            </td>
+                            <td>
+                                <%= item.quantity%>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                        </tr>
+                        <%});%>
+                </tbody>
+            </table>
+        </div> -->
+    </div>
+
+    <div>
+        <div>
+            <form action="/save" method="post" enctype="multipart/form-data">
+                <input type="text" name="id" placeholder="ID" />
+                <br />
+                <input type="text" name="name" placeholder="Name" />
+                <br />
+                <input type="text" name="quantity" placeholder="Quantity" />
+                <br />
+                <input type="text" name="price" placeholder="Price" />
+                <br />
+                <input type="file" name="image" id="image" accept="image/**" />
+                <br/>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div>
+            <form action="/delete" method="POST" enctype="multipart/form-data">
+                <table border="true">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Select</th>
+                    </tr>
+                    <% for (let i = 0; i < data.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= data[i].id %>
+                            </td>
+                            <td>
+                                <%= data[i].name %>
+                            </td>
+                            <td>
+                                <%= data[i].quantity %>
+                            </td>
+                            <td>
+                                <%= data[i].price %>
+                            </td>
+                            <td><img src="<%= data[i].image %>" alt="avt_<%= data[i].id %>" width="48" height="48" /></td>
+                            <td><input type="checkbox" name="<%= data[i].id %>" id="<%= data[i].id %>"/></td>
+                        </tr>
+                    <% } %>
+                </table>
+                <button type="submit">Xoá</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
